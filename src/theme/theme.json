@@ -1,0 +1,24 @@
+{
+  "token": {
+    "colorPrimary": "#f72717",
+    "colorInfo": "#f72717",
+    "colorTextBase": "#00344e"
+  },
+  "components": {
+    "Menu": {
+      "dangerItemSelectedColor": "rgb(0, 52, 78)",
+      "itemSelectedColor": "rgb(0, 52, 78)",
+      "iconSize": 16
+    },
+    "Input": {
+      "colorPrimary": "rgb(124, 173, 226)",
+      "colorPrimaryActive": "rgb(124, 173, 226)",
+      "colorPrimaryHover": "rgb(124, 173, 226)"
+    },
+    "Table": {
+      "colorPrimary": "rgb(0, 52, 78)",
+      "colorLink": "rgb(22, 119, 255)",
+      "colorLinkActive": "rgb(22, 119, 255)"
+    }
+  }
+}
