@@ -1,4 +1,14 @@
-import { Button, Col, Flex, Form, Input, Row, Switch, Typography } from "antd";
+import {
+  Button,
+  Col,
+  Flex,
+  Form,
+  Input,
+  Row,
+  Switch,
+  Typography,
+  message,
+} from "antd";
 import { useNavigate } from "react-router-dom";
 import { LoginImage } from "../../assets/icons";
 import { useDispatch } from "react-redux";
@@ -16,6 +26,8 @@ const Login = () => {
     ) {
       dispatch(login(data));
       navigate("/");
+    } else {
+      message.error("Incorrect email or password");
     }
   };
 

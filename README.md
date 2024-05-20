@@ -1,30 +1,65 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Logo](https://flyerssoft.com/images/flyers-logo.svg)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Flyerssoft assesment
 
-## Expanding the ESLint configuration
+Flyers Payroll assesment 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features ✨
 
-- Configure the top-level `parserOptions` property like this:
+-   Payroll table has **fixed coloums** to the left & right
+-   Payroll table additions and deductions edit which reflect in total salary
+-   Multi level **row selection** can be done with payroll table
+-   Multi parameters **search** can be done (Employee name, Designation, & Employee Id)
+-   Table **Sort** was available for both employee and payroll table
+-   Add and delete employee is possible 
+-   **Redux persist** is available so that any data updated will not get lost after reload
+-   Payroll can be run for **six future months** and **past months** from the current month.
+-   Payroll cannot be run multiple times for the same employee in the same month.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+
+## Tech Stack
+
+**Client:** React, Redux-toolkit, Redux-persist, TailwindCSS
+
+
+
+
+## Documentation
+
+[Check the full document here](https://docs.google.com/document/d/1ugt4QYyzqEg9afLNNTWSEHqg7ZJJhcHyFmJphwcFvdI/edit)
+
+
+## Authors
+
+- [@sujai_shanmugam](https://github.com/suj-ai)
+
