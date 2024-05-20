@@ -84,7 +84,7 @@ const PayrollProcessing = () => {
       <Flex justify="space-between" align="center">
         <Title level={2}> Review payroll</Title>
         <Space>
-          <Button>Cancel</Button>
+          <Button href="/payroll">Cancel</Button>
           <Button onClick={handleSubmitPayroll} type="primary">
             Submit Payroll
           </Button>

@@ -3,6 +3,7 @@ import {
   Col,
   Flex,
   Input,
+  Modal,
   Space,
   Table,
   TableColumnsType,
@@ -19,20 +20,16 @@ import { Employee } from "../../../../constants/employeesConstants";
 
 const { Title } = Typography;
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  employeeId: string;
-  address: string;
-  designation: string;
-}
 const Employees = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [deleteEmployeeData, setDeleteEmployeeData] = useState<Employee | null>(
+    null
+  );
   const employeeData = useSelector(selectEmployeeData);
   const dispatch = useDispatch();
   const [searchKey, setSearchKey] = useState("");
 
-  const columns: TableColumnsType<DataType> = [
+  const columns: TableColumnsType<Employee> = [
     {
       title: "Name",
       dataIndex: "name",
@@ -84,7 +81,10 @@ const Employees = () => {
         return (
           <Tooltip title="Delete Employee">
             <Button
-              onClick={() => dispatch(deleteEmployee(row.employeeId))}
+              onClick={() => {
+                setIsModalOpen(true);
+                setDeleteEmployeeData(row);
+              }}
               icon={<MdDeleteOutline size="20" />}
             ></Button>
           </Tooltip>
@@ -141,6 +141,22 @@ const Employees = () => {
           showSorterTooltip={{ target: "sorter-icon" }}
         />
       </Col>
+      <Modal
+        title="Delete Employee"
+        open={isModalOpen}
+        centered
+        onOk={() => {
+          dispatch(deleteEmployee(deleteEmployeeData?.employeeId));
+          setDeleteEmployeeData(null);
+          setIsModalOpen(false);
+        }}
+        onCancel={() => {
+          setIsModalOpen(false);
+          setDeleteEmployeeData(null);
+        }}
+      >
+        Are you sure you want to delete {deleteEmployeeData?.name} ?
+      </Modal>
     </Col>
   );
 };
