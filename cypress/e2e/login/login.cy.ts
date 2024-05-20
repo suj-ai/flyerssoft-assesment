@@ -15,11 +15,11 @@ describe("Login functionality flows", () => {
    * It stubs the login API request and checks if the login is successful.
    */
   it("logs in successfully", () => {
-    cy.get("[data-cy=email-input]").type("JayceeSeededEmployee@hotmail.com");
-    cy.get("[data-cy=password-input]").type("src@123");
+    cy.get("[data-cy=email-input]").type("flyerssoft@gmail.com");
+    cy.get("[data-cy=password-input]").type("Flyers@123");
     cy.get("button[type=submit]").click();
     // cy.contains("Login Successful");
-    cy.url().should("include", "/orders_management/orders");
+    cy.url().should("include", "/employees");
   });
 
   /**

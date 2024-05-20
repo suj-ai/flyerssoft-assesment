@@ -46,6 +46,11 @@ Start the server
   npm run start
 ```
 
+## To Run Test
+From the root of the project 
+```bash
+ npm run cy:open-e2e
+```
 
 ## Tech Stack
 
