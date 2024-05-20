@@ -2,7 +2,8 @@
 import { useRoutes } from "react-router-dom";
 import { protectedRoutes } from "./protectedRoutes";
 import { publicRoutes } from "./publicRoutes";
-import { createContext, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectLoggedInStatus } from "../feature/auth/slice/authSlice";
 /**
  * The AppRoutes component that manages the routing of the application.
  * It uses the useSelector hook to check if the user is authenticated.
@@ -11,18 +12,13 @@ import { createContext, useState } from "react";
  *
  * @returns {JSX.Element} The AppRoutes component.
  */
-export const isAuthorised = createContext<any>(null);
 
 export const AppRoutes = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const selectIsLoggedIn = useSelector(selectLoggedInStatus);
 
-  const routes = isLoggedIn ? protectedRoutes : publicRoutes;
+  const routes = selectIsLoggedIn ? protectedRoutes : publicRoutes;
 
   const element = useRoutes([...routes]);
 
-  return (
-    <isAuthorised.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-      {element}
-    </isAuthorised.Provider>
-  );
+  return <>{element}</>;
 };

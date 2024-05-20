@@ -1,16 +1,22 @@
 import { Button, Col, Flex, Form, Input, Row, Switch, Typography } from "antd";
-import { useContext } from "react";
-import { isAuthorised } from "../../routes";
 import { useNavigate } from "react-router-dom";
 import { LoginImage } from "../../assets/icons";
+import { useDispatch } from "react-redux";
+import { login } from "../../feature/auth/slice/authSlice";
 
 const Login = () => {
-  const { setIsLoggedIn } = useContext(isAuthorised);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onFinish = () => {
-    setIsLoggedIn(true);
-    navigate("/");
+  const onFinish = (data) => {
+    console.log("data", data);
+    if (
+      data?.email === "flyerssoft@gmail.com" &&
+      data?.password === "Flyers@123"
+    ) {
+      dispatch(login(data));
+      navigate("/");
+    }
   };
 
   return (
@@ -34,7 +40,7 @@ const Login = () => {
               <Row className="mt-5">
                 <Col xl={24}>
                   <Form.Item
-                    name={["user", "email"]}
+                    name="email"
                     label="Email ID"
                     data-cy="email-input"
                     rules={[{ type: "email", required: true }]}
@@ -50,7 +56,7 @@ const Login = () => {
               <Row>
                 <Col xl={24}>
                   <Form.Item
-                    name={["user", "password"]}
+                    name="password"
                     label="Password"
                     rules={[{ required: true }]}
                     data-cy="password-input"

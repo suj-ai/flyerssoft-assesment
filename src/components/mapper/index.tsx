@@ -29,7 +29,7 @@ const Mapper = () => {
     );
   }
 
-  return <Navigate to="/orders_management/orders" />;
+  return <Navigate to="/employees" />;
 };
 
 export default Mapper;

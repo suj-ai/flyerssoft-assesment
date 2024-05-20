@@ -66,7 +66,6 @@ const PayrollProcessing = () => {
 
   const handleSubmitPayroll = () => {
     const selectedForPayrollIds = selectedForPayroll.map((el) => el.employeeId);
-    console.log("first", selectedForPayrollIds);
     const finalData = employeeData.map((el) => {
       if (selectedForPayrollIds.includes(el.employeeId)) {
         return {

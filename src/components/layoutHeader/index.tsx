@@ -1,8 +1,10 @@
-import { Col, Layout, Select } from "antd";
+import { Col, Layout, Select, Tooltip } from "antd";
 import { DownIcon, NotificationIcon, PersonImage } from "../../assets/icons";
 import { useEffect, useRef, useState } from "react";
-
+import { IoIosLogOut } from "react-icons/io";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import { useDispatch } from "react-redux";
+import { logout } from "../../feature/auth/slice/authSlice";
 
 const { Header } = Layout;
 
@@ -22,6 +24,7 @@ type LayoutHeaderProps = {
 const LayoutHeader = ({ colorBgContainer }: LayoutHeaderProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
   const notificationRef = useRef(null);
   useOnClickOutside(notificationRef, () => {
     setIsVisible(false);
@@ -49,7 +52,7 @@ const LayoutHeader = ({ colorBgContainer }: LayoutHeaderProps) => {
           ]}
         />
       </Col>
-      <Col className="flex items-center justify-center">
+      <Col className="flex items-center justify-center gap-5">
         <Col
           className="flex items-center cursor-pointer"
           onClick={() => (isVisible ? setIsVisible(false) : setIsVisible(true))}
@@ -66,6 +69,12 @@ const LayoutHeader = ({ colorBgContainer }: LayoutHeaderProps) => {
             </div>
           </Col>
         </Col>
+        <Tooltip title="logout">
+          <IoIosLogOut
+            className="text-xl cursor-pointer"
+            onClick={() => dispatch(logout())}
+          />
+        </Tooltip>
       </Col>
     </Header>
   );
